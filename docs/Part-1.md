@@ -90,7 +90,7 @@ metadata:
 spec:
  generators:
    - git:
-       repoURL: https://github.com/albertogd/gitops-for-organizations.git
+       repoURL: https://github.com/adhambbaker/k8-gitops
        revision: main
        files:
          - path: "clusters/**/provision.yaml"
@@ -105,7 +105,7 @@ spec:
    spec:
      project: default
      source:
-       repoURL: https://github.com/albertogd/gitops-for-organizations.git
+       repoURL: https://github.com/adhambbaker/k8-gitops
        targetRevision: main
        path: base/provision/openshift-provisioning
        helm:

@@ -40,7 +40,7 @@ spec:
    - matrix:
        generators:
          - git:
-             repoURL: https://github.com/albertogd/gitops-for-organizations.git
+             repoURL: https://github.com/adhambbaker/k8-gitops
              revision: main
              files:
                - path: "clusters/**/conf.yaml"
@@ -60,7 +60,7 @@ spec:
    spec:
      project: default
      source:
-       repoURL: https://github.com/albertogd/gitops-for-organizations.git
+       repoURL: https://github.com/adhambbaker/k8-gitops
        targetRevision: main
        path: base/config/{{template}}
        helm:
@@ -115,7 +115,7 @@ metadata:
 spec:
  generators:
  - git:
-     repoURL: https://github.com/albertogd/gitops-for-organizations.git
+     repoURL: https://github.com/adhambbaker/k8-gitops
      revision: main
      files:
        - path: "clusters/**/conf.yaml"
@@ -130,7 +130,7 @@ spec:
    spec:
      project: default
      source:
-       repoURL: https://github.com/albertogd/gitops-for-organizations.git
+       repoURL: https://github.com/adhambbaker/k8-gitops
        targetRevision: main
        path: clusters/{{cluster.environment}}/{{cluster.fqdn}}/overlay
      destination:
