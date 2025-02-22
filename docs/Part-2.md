@@ -34,7 +34,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
  name: cluster-config
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  generators:
    - matrix:
@@ -111,7 +111,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
  name: cluster-config-overlays
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  generators:
  - git:

@@ -2,13 +2,13 @@ apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
 metadata:
   name: argo-acm-clusters
-  namespace: openshift-gitops
+  namespace: argocd
 spec:
   argoServer:
     cluster: local-cluster
-    argoNamespace: openshift-gitops
+    argonamespace: argocd
   placementRef:
     kind: Placement
     apiVersion: cluster.open-cluster-management.io/v1beta1
     name: vmware
-    namespace: openshift-gitops
+    namespace: argocd

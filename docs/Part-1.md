@@ -86,7 +86,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
  name: cluster-provisioning
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  generators:
    - git:
@@ -163,7 +163,7 @@ apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: ManagedClusterSetBinding
 metadata:
  name: vmware
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  clusterSet: vmware
 ```
@@ -176,7 +176,7 @@ apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
  name: vmware
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  predicates:
  - requiredClusterSelector:
@@ -197,16 +197,16 @@ apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
 metadata:
  name: argo-acm-clusters
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  argoServer:
    cluster: local-cluster
-   argoNamespace: openshift-gitops
+   argonamespace: argocd
  placementRef:
    kind: Placement
    apiVersion: cluster.open-cluster-management.io/v1beta1
    name: vmware
-   namespace: openshift-gitops
+   namespace: argocd
 ```
 
 <br />
