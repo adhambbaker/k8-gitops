@@ -10,6 +10,6 @@ spec:
   source:
     path: clusters/acm-hub.redhat.com
     repoURL: >-
-      https://github.com/adhambbaker/gitops-for-organizations.git
+      https://github.com/adhambbaker/k8-gitops.git
     targetRevision: develop
   syncPolicy: {}
