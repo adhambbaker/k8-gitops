@@ -1,4 +1,4 @@
 apiVersion: v1
-name: w-node-config
+name: wnodeconfig
 version: "1"
 description: Test
