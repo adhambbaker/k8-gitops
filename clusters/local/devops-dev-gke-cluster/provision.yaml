@@ -1,6 +1,6 @@
 cluster:
   name: devops-dev-gke-cluster
-  fqdn: evops-dev-gke-cluster.local.cloudaimasters.com 
+  fqdn: devops-dev-gke-cluster.local.cloudaimasters.com 
   baseDomain: local.cloudaimasters.com
   environment: local
   datacenter: europe
