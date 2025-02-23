@@ -22,7 +22,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/adhambbaker/k8-gitops
-        targetRevision: main
+        targetRevision: develop
         path: clusters/{{cluster.environment}}/{{cluster.fqdn}}/overlay
       destination:
         server: "{{cluster.address}}"

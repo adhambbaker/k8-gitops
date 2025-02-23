@@ -7,7 +7,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/adhambbaker/k8-gitops
-        revision: main
+        revision: develop
         files:
           - path: "clusters/**/provision.yaml"
   template:
@@ -22,7 +22,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/adhambbaker/k8-gitops
-        targetRevision: main
+        targetRevision: develop
         path: base/provision/openshift-provisioning
         helm:
           valueFiles:
