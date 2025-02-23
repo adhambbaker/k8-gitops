@@ -6,3 +6,4 @@ resources:
 # - argocd
 # - gitops-cluster
 - policies
+- rbac
