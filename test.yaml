@@ -1,0 +1,12 @@
+apiVersion: networking.gke.io/v1
+kind: GCPBackendPolicy
+metadata:
+  name: my-backend-policy
+  namespace: argocd
+spec:
+  default:
+    timeoutSec: 40
+  targetRef:
+    group: ""
+    kind: Service
+    name: lb-service

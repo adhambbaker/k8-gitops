@@ -12,5 +12,4 @@ spec:
       - key: environment
         operator: In
         values:
-         - dev
          - local
