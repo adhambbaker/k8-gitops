@@ -16,6 +16,7 @@ spec:
               elements:
                 - template: openshift-machine-config
                 - template: openshift-ingress
+                - kustomize: worker-node-config
                 # - template: openshift-marketplace
   template:
     metadata:
