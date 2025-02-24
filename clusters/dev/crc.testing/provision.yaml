@@ -1,12 +1,12 @@
 cluster:
-  name: zamora
-  fqdn: zamora.dev.redhat.com
-  baseDomain: dev.redhat.com
+  name: crc
+  fqdn: crc.testing
+  baseDomain: testing
   environment: dev
   datacenter: europe
-  cloud: vmware
+  cloud: local
   region: eu
-  type: vsphere
+  type: crc
   imageName: 4.10.24
 
 network:
