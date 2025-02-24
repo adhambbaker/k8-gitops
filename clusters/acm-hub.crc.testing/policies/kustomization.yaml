@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - 4.11/gcp-backend-policy
   - 4.11/upgrade-ocp
+  - 4.11/odf-operator
