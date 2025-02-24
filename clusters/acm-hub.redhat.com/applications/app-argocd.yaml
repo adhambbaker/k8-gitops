@@ -2,14 +2,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: openshift-gitops-config
-  namespace: openshift-gitops
+  namespace: argocd
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: clusters/acm-hub.redhat.com
+    path: clusters/crc.testing
     repoURL: >-
-      https://github.com/albertogd/gitops-for-organizations.git
-    targetRevision: main
+      https://github.com/adhambbaker/k8-gitops.git
+    targetRevision: abb-dev
   syncPolicy: {}

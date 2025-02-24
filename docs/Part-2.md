@@ -34,14 +34,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
  name: cluster-config
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  generators:
    - matrix:
        generators:
          - git:
-             repoURL: https://github.com/albertogd/gitops-for-organizations.git
-             revision: main
+             https://github.com/adhambbaker/k8-gitops.git
+             abb-dev
              files:
                - path: "clusters/**/conf.yaml"
          - list:
@@ -60,8 +60,8 @@ spec:
    spec:
      project: default
      source:
-       repoURL: https://github.com/albertogd/gitops-for-organizations.git
-       targetRevision: main
+       https://github.com/adhambbaker/k8-gitops.git
+       targetabb-dev
        path: base/config/{{template}}
        helm:
          valueFiles:
@@ -111,12 +111,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
  name: cluster-config-overlays
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  generators:
  - git:
-     repoURL: https://github.com/albertogd/gitops-for-organizations.git
-     revision: main
+     https://github.com/adhambbaker/k8-gitops.git
+     abb-dev
      files:
        - path: "clusters/**/conf.yaml"
  template:
@@ -130,8 +130,8 @@ spec:
    spec:
      project: default
      source:
-       repoURL: https://github.com/albertogd/gitops-for-organizations.git
-       targetRevision: main
+       https://github.com/adhambbaker/k8-gitops.git
+       targetabb-dev
        path: clusters/{{cluster.environment}}/{{cluster.fqdn}}/overlay
      destination:
        server: "{{cluster.address}}"

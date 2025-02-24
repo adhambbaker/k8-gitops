@@ -86,12 +86,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
  name: cluster-provisioning
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  generators:
    - git:
-       repoURL: https://github.com/albertogd/gitops-for-organizations.git
-       revision: main
+       https://github.com/adhambbaker/k8-gitops.git
+       abb-dev
        files:
          - path: "clusters/**/provision.yaml"
  template:
@@ -105,8 +105,8 @@ spec:
    spec:
      project: default
      source:
-       repoURL: https://github.com/albertogd/gitops-for-organizations.git
-       targetRevision: main
+       https://github.com/adhambbaker/k8-gitops.git
+       targetabb-dev
        path: base/provision/openshift-provisioning
        helm:
          valueFiles:
@@ -163,7 +163,7 @@ apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: ManagedClusterSetBinding
 metadata:
  name: vmware
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  clusterSet: vmware
 ```
@@ -176,7 +176,7 @@ apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
  name: vmware
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  predicates:
  - requiredClusterSelector:
@@ -197,16 +197,16 @@ apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
 metadata:
  name: argo-acm-clusters
- namespace: openshift-gitops
+ namespace: argocd
 spec:
  argoServer:
    cluster: local-cluster
-   argoNamespace: openshift-gitops
+   argonamespace: argocd
  placementRef:
    kind: Placement
    apiVersion: cluster.open-cluster-management.io/v1beta1
    name: vmware
-   namespace: openshift-gitops
+   namespace: argocd
 ```
 
 <br />

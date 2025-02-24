@@ -1,11 +1,11 @@
 cluster:
-  name: zamora
-  domain: dev.redhat.com
-  fqdn: zamora.dev.redhat.com
+  name: crc
+  domain: testing
+  fqdn: crc.testing
   address: "https://kubernetes.default.svc"
   environment: dev
   datacenter: europe
-  cloud: vmware
+  cloud: local
   region: eu
   registry: quay-dev.io
 

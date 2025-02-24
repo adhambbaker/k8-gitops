@@ -2,21 +2,21 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: cluster-config
-  namespace: openshift-gitops
+  namespace: argocd
 spec:
   generators:
     - matrix:
         generators:
           - git:
-              repoURL: https://github.com/albertogd/gitops-for-organizations.git
-              revision: main
+              https://github.com/adhambbaker/k8-gitops.git
+              abb-dev
               files:
                 - path: "clusters/**/conf.yaml"
           - list:
               elements:
                 - template: openshift-machine-config
-                - template: openshift-ingress
-                - template: openshift-marketplace
+                # - template: openshift-ingress
+                # - template: openshift-marketplace
   template:
     metadata:
       name: "config-{{cluster.environment}}-{{cluster.name}}-{{template}}"
@@ -28,8 +28,8 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/albertogd/gitops-for-organizations.git
-        targetRevision: main
+        https://github.com/adhambbaker/k8-gitops.git
+        targetabb-dev
         path: base/config/{{template}}
         helm:
           valueFiles:
