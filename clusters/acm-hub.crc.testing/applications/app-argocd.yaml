@@ -8,7 +8,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: clusters/crc.testing
+    path: clusters/acm-hub.crc.testing
     repoURL: >-
       https://github.com/adhambbaker/k8-gitops.git
     targetRevision: abb-dev
