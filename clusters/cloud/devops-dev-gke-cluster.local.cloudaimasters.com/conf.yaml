@@ -3,7 +3,7 @@ cluster:
   domain: local.cloudaimasters.com
   fqdn: devops-dev-gke-cluster.local.cloudaimasters.com
   address: "https://kubernetes.default.svc"
-  environment: local
+  environment: cloud
   datacenter: europe
   cloud: GCP
   region: eu
