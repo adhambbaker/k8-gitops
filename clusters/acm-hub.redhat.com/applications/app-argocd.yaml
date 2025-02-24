@@ -9,7 +9,6 @@ spec:
   project: default
   source:
     path: clusters/acm-hub.redhat.com
-    repoURL: >-
-      https://github.com/adhambbaker/k8-gitops.git
+    repoURL: https://github.com/adhambbaker/k8-gitops.git
     targetRevision: abb-dev
   syncPolicy: {}
