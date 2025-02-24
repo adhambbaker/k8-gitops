@@ -15,7 +15,7 @@ spec:
           - list:
               elements:
                 - template: openshift-machine-config
-                - template: openshift-ingress
+                # - template: openshift-ingress
                 # - template: worker-node-config
                 # - template: openshift-marketplace
   template:
