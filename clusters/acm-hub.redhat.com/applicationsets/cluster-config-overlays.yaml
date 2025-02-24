@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       https://github.com/adhambbaker/k8-gitops.git
-      abb-dev
+      revision: abb-dev
       files:
         - path: "clusters/**/conf.yaml"
   template:
@@ -22,7 +22,7 @@ spec:
       project: default
       source:
         https://github.com/adhambbaker/k8-gitops.git
-        targetabb-dev
+        targetRevision: abb-dev
         path: clusters/{{cluster.environment}}/{{cluster.fqdn}}/overlay
       destination:
         server: "{{cluster.address}}"

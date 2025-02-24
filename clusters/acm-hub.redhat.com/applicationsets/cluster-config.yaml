@@ -9,7 +9,7 @@ spec:
         generators:
           - git:
               https://github.com/adhambbaker/k8-gitops.git
-              abb-dev
+              revision: abb-dev
               files:
                 - path: "clusters/**/conf.yaml"
           - list:
@@ -29,7 +29,7 @@ spec:
       project: default
       source:
         https://github.com/adhambbaker/k8-gitops.git
-        targetabb-dev
+        targetRevision: abb-dev
         path: base/config/{{template}}
         helm:
           valueFiles:
