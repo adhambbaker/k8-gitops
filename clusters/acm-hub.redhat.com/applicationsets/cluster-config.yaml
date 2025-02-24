@@ -15,8 +15,8 @@ spec:
           - list:
               elements:
                 - template: openshift-machine-config
-                # - template: openshift-ingress
-                # - template: openshift-marketplace
+                - template: openshift-ingress
+                - template: openshift-marketplace
   template:
     metadata:
       name: "config-{{cluster.environment}}-{{cluster.name}}-{{template}}"
