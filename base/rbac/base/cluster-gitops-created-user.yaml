@@ -1,5 +1,5 @@
 apiVersion: user.openshift.io/v1
-groups: gitops-created-group
+groups: null
 kind: User
 metadata:
   name: abb
