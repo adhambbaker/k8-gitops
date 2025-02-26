@@ -1,9 +1,11 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-helmChart: 
+helmGlobals:
+  chartHome: ../../../charts
+helmCharts:
 - name: wnodeconfig
-  repo: file://../../worker-node-config
+  repo: ./worker-node-config
 
 
 
@@ -13,3 +15,16 @@ helmChart:
 # - name: helper-argocd
 #   repo: https://charts.stderr.at
 #   valuesFile: values.yaml
+
+
+helmGlobals:
+  chartHome: ../../../charts
+helmCharts:
+- releaseName: mariadb
+  namespace: default
+  name: mariadb
+  version: 0.1.0
+  includeCRDs: false
+  valuesInline:
+    ingress:
+      enabled: true
