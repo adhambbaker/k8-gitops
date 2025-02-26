@@ -8,7 +8,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: base
+    # path: base
     repoURL: >-
       https://github.com/adhambbaker/k8-gitops.git
     targetRevision: one-repo
