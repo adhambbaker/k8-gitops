@@ -4,3 +4,4 @@ metadata:
   name: gitops-created-group
 users:
   - kubeadmin
+  - abb
