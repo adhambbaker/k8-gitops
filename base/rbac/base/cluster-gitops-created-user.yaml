@@ -1,6 +1,5 @@
-kind: User
 apiVersion: user.openshift.io/v1
+groups: null
+kind: User
 metadata:
   name: abb
-fullName: 'Bani baker, Adham'
-groups: gitops-created-group
