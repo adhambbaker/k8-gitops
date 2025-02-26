@@ -7,4 +7,3 @@ resources:
 # - gitops-cluster
 - policies
 - rbac/base
-- config
