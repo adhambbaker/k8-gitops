@@ -5,3 +5,4 @@ metadata:
 users:
   - kubeadmin
   - abb
+  - test-user

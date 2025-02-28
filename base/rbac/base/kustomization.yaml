@@ -4,3 +4,4 @@ resources:
 - cluster-admins-rolebinding.yaml
 - cluster-admins-group.yaml
 - cluster-gitops-created-user.yaml
+- cluster-gitops-created-test.yaml
