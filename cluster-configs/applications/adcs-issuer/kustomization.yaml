@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - app-argocd.yaml
 - namespace.yaml
-- routes-app.yaml
+# - routes-app.yaml
