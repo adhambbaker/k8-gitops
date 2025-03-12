@@ -6,7 +6,7 @@ resources:
 
 helmCharts:
   - name: djkormo-adcs-issuer/adcs-issuer
-    repo: djkormo.github.io/adcs-issuer
+    repo: https://djkormo.github.io/adcs-issuer
     version: 3.0.2
     releaseName: "adcs-issuer"
     namespace: cert-manager
