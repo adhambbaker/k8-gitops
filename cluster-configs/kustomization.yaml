@@ -11,4 +11,6 @@ resources:
 # - components/cluster-issuer/base
 # - components/base-operators
 
+componenets:
+- ../
 
