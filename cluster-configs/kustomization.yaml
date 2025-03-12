@@ -8,5 +8,5 @@ resources:
 - components/policies
 - components/rbac/base
 - components/banner/base
-# - components/cluster-issuer/base
+- components/cluster-issuer/base
 # - components/base-operators
