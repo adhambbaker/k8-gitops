@@ -10,4 +10,4 @@ helmCharts:
     version: 3.0.2
     releaseName: "adcs-issuer"
     namespace: cert-manager
-    # valuesFile: values.yaml
+    valuesFile: values.yaml
