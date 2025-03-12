@@ -1,0 +1,40 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: adcs-issuer
+#   namespace: argocd
+# spec:
+#   destination:
+#     server: 'https://kubernetes.default.svc'
+#   project: default
+#   source:
+#     path: cluster-configs/components/cluster-issuer/base
+#     repoURL: >-
+#       https://github.com/adhambbaker/k8-gitops.git
+#     targetRevision: one-repo
+#   syncPolicy: {}
+
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: adcs-issuer
+  namespace: openshift-gitops
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: openshift-routes
+    repoURL: ghcr.io/cert-manager/charts
+    targetRevision: 0.8.0
+    helm:
+      releaseName: openshift-routes
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: cert-manager
+
+
+#Route section
+# helm install openshift-routes -n cert-manager oci://ghcr.io/cert-manager/charts/openshift-routes
