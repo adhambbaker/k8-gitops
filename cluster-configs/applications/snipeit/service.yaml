@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: snipe-entrypoint
+  namespace: test-snipeit
+  labels:
+    app: snipe
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: snipe
+    tier: frontend
+  clusterIP: None
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: snipedb
+  namespace: test-snipeit
+  labels:
+    app: snipedb
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: snipe
+    tier: snipedb
+  clusterIP: None
