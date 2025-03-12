@@ -1,0 +1,73 @@
+crd:
+  install: true
+
+controllerManager:
+  manager:
+    image:
+      repository: djkormo/adcs-issuer  # The repository for the ADCS Issuer Docker image.
+      tag: 2.1.2                       # The tag for the ADCS Issuer Docker image.
+    resources:
+      limits:
+        cpu: 100m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 100Mi
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 8081
+        scheme: HTTP
+      timeoutSeconds: 10
+      periodSeconds: 10
+    readinessProbe:
+      httpGet:
+        path: /readyz
+        port: 8081
+        scheme: HTTP
+      timeoutSeconds: 20
+      periodSeconds: 20
+      initialDelaySeconds: 10
+  rbac:
+    enabled: true                        # Enable or disable RBAC.
+    serviceAccountName: adcs-issuer      # The name of the service account used by the controller manager.
+    certManagerNamespace: cert-manager   # The namespace where cert-manager is installed.
+    certManagerServiceAccountName: cert-manager  # The service account name for cert-manager.
+  replicas: 1
+  environment:
+    KUBERNETES_CLUSTER_DOMAIN: cluster.local  # Kubernetes cluster domain.
+    ENABLE_WEBHOOKS: "false"                  # Enable or disable webhooks.
+    ENABLE_DEBUG: "false"                     # Enable or disable debug mode.
+  arguments:
+    enable-leader-election: "true"            # Enable leader election for high availability.
+    cluster-resource-namespace: adcs-issuer   # Namespace for cluster resources.
+    zap-log-level: 5                          # Logging level for zap logger.
+    disable-approved-check: "false"           # Disable approved check.
+  securityContext:
+    runAsUser: 1000                           # User ID to run the container as.
+  affinity:
+    nodeAffinity: {}                          # Node affinity rules for the simulator pods.
+    podAffinity: {}                           # Pod affinity rules for the simulator pods.
+    podAntiAffinity: {}                       # Pod anti-affinity rules for the simulator pods.
+  enabledWebHooks: false                      # Enable or disable webhooks.
+  enabledCaCerts: false                       # Enable or disable mounting CA certificates.
+  caCertsSecretName: ca-certificates          # Name of the secret containing CA certificates.
+metricsService:
+  enabled: true                               # Enable or disable the metrics service.
+  nameOverride: null                          # Override the name of the metrics service.
+  serviceMonitor:
+    enabled: true                             # Create a Prometheus ServiceMonitor.
+    scheme: http                              # Scheme to use when scraping - http or https
+  ports:
+  - name: http
+    port: 8080
+    targetPort: metrics
+  type: ClusterIP                             # Type of Kubernetes service.
+webhookService:
+  ports:
+  - port: 443
+    targetPort: 9443
+  type: ClusterIP                             # Type of Kubernetes service.
+nodeSelector: {}
+      cpu: 100m
+      memory: 100Mi
