@@ -12,5 +12,5 @@ resources:
 # - components/base-operators
 
 components:
-- ../components
+- components
 
