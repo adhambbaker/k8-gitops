@@ -7,10 +7,10 @@ resources:
 # - gitops-cluster
 - components/policies
 - components/rbac/base
-- components/banner/base
+# - components/banner/base
 # - components/cluster-issuer/base
 # - components/base-operators
 
 components:
-- components
+- components/banner/base
 
