@@ -83,7 +83,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: snipe-pvolume
   namespace: test-snipeit
-spec:
   labels:
     app: snipe
 spec:
