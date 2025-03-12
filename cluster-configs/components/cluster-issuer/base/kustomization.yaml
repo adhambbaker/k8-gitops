@@ -5,7 +5,7 @@ resources:
   - namespace.yaml
 
 helmCharts:
-  - name: djkormo-adcs-issuer
+  - name: djkormo-adcs-issuer/adcs-issuer
     repo: https://djkormo.github.io/adcs-issuer
     version: 3.0.2
     releaseName: adcs-issuer
