@@ -7,5 +7,6 @@ resources:
 # - gitops-cluster
 - components/policies
 - components/rbac/base
+- components/banner/base
 
 
