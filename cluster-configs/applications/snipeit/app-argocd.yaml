@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: adcs-issuer
+  namespace: argocd
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: cluster-configs/applications/snipeit
+    repoURL: >-
+      https://github.com/adhambbaker/k8-gitops.git
+    targetRevision: one-repo
+  syncPolicy: {}
