@@ -1,15 +1,45 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: ocp-gitops-one-repo
+#   namespace: argocd
+# spec:
+#   destination:
+#     server: 'https://kubernetes.default.svc'
+#   project: default
+#   source:
+#     path: base
+#     repoURL: >-
+#       https://github.com/adhambbaker/k8-gitops.git
+#     targetRevision: one-repo
+#   syncPolicy: {}
+
+
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ocp-gitops-one-repo
-  namespace: argocd
+  name: adcs-issuer
+  namespace: openshift-gitops
 spec:
-  destination:
-    server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: base
-    repoURL: >-
-      https://github.com/adhambbaker/k8-gitops.git
-    targetRevision: one-repo
-  syncPolicy: {}
+    chart: adcs-issuer
+    repoURL: https://djkormo.github.io/adcs-issuer
+    targetRevision: 3.0.2
+    helm:
+      releaseName: adcs-issuer
+      valueFiles: 
+      - values.yaml
+
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: cert-manager
+
+
+    #   - name: adcs-issuer
+    # repo: https://djkormo.github.io/adcs-issuer
+    # version: v3.0.2
+    # releaseName: adcs-issuer
+    # namespace: cert-manager
+    # valuesFile: values.yaml
